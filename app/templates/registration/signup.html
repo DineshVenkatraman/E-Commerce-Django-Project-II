@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+{% block content %}
+
+<section id="form" style="margin-left: 30%;margin-top: 5%;"><!--form-->
+    <div class="container">
+
+        <div class="col-sm-4 col-sm-offset-1">
+            <div class="login-form"><!--login form-->
+                <h2>New User Signup...</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {{field.errors}}
+                    <p>{{field}}</p>
+
+                    {% endfor %}
+                    <button class="btn btn-default" type="submit">Signup</button><br>
+                    <span style="margin-left: 80px;">Already Have An Account ?</span><a href="{% url 'login' %}">&nbsp;Login</a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!--/form-->
+
+
+
+
+{% endblock %}
